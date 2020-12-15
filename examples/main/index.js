@@ -2,7 +2,7 @@ import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start, ini
 import './index.less';
 
 // for angular subapp
-import 'zone.js';
+// import 'zone.js';
 
 /**
  * 主应用 **可以使用任意技术栈**

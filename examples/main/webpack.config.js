@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const { name } = require('./package');
 
 module.exports = {
@@ -43,6 +44,12 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        // 如果需要angular子应用，这里可以去掉
+        { from: './node_modules/zone.js/dist/zone.js', to: 'assets/js/zone.js'},
+      ]
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: process.env.MODE === 'multiple' ? './multiple.html' : './index.html',
